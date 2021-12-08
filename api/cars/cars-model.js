@@ -8,8 +8,9 @@ const getById = (id) => {
   return db('cars').where('car_id', id).first()
 }
 
-const create = () => {
-  // DO YOUR MAGIC
+const create = (car) => {
+  return db('cars').insert(car)
+    .then(([id]) => getById(id))
 }
 
 module.exports = {
